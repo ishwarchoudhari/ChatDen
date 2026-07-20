@@ -1,0 +1,53 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+backend/.venv/
+.venv/
+venv/
+
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Django
+.sqlite3
+media/
+staticfiles/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Node.js
+frontend/node_modules/
+
+# Build
+dist/
+build/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Pytest
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
