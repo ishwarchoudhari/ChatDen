@@ -81,13 +81,22 @@ Requires a local PostgreSQL instance matching the credentials in `.env`.
 
 All endpoints are versioned under `/api/v1/`. Full request/response reference: [`docs/PROJECT_ARCHITECTURE.md`](docs/PROJECT_ARCHITECTURE.md#endpoints-current).
 
-| Area | Base path |
-|---|---|
-| Accounts | `/api/v1/accounts/` |
-| Authentication | `/api/v1/authentication/` |
-| Profiles | `/api/v1/profiles/` |
-| Relationships (discovery & blocking) | `/api/v1/relationships/` |
-| Chat | `/api/v1/chat/` |
+| Method | Path | App | Auth |
+|---|---|---|---|
+| POST | `/api/v1/accounts/register/` | accounts | Public (throttled) |
+| GET | `/api/v1/accounts/health/` | accounts | Public |
+| POST | `/api/v1/authentication/login/` | authentication | Public (throttled) |
+| POST | `/api/v1/authentication/refresh/` | authentication | Public |
+| POST | `/api/v1/authentication/logout/` | authentication | Authenticated |
+| GET | `/api/v1/authentication/me/` | authentication | Authenticated |
+| GET / PATCH | `/api/v1/profiles/` | profiles | Authenticated (own profile only) |
+| GET / POST | `/api/v1/relationships/blocks/` | relationships | Authenticated (ownership-scoped) |
+| DELETE | `/api/v1/relationships/blocks/<id>/` | relationships | Authenticated (ownership-scoped) |
+| GET | `/api/v1/relationships/search/` | relationships | Authenticated, throttled — reported complete, pending review |
+| GET | `/api/v1/relationships/users/<id>/` | relationships | Authenticated — reported complete, pending review |
+| GET / POST | `/api/v1/chat/conversations/` | chat | Authenticated — reported complete, pending review |
+| GET | `/api/v1/chat/conversations/<id>/` | chat | Authenticated + `IsConversationMember` — reported complete, pending review |
+| GET / POST | `/api/v1/chat/conversations/<id>/messages/` | chat | Authenticated + `IsConversationMember` — reported complete, pending review |
 
 ## Roadmap
 
