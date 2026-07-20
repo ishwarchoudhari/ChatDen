@@ -113,4 +113,4 @@ All endpoints are versioned under `/api/v1/`. Full request/response reference: [
 
 **Proprietary — All Rights Reserved.** See [`LICENSE`](LICENSE). This code is not licensed for reuse, redistribution, or modification without explicit permission.
 
-*(If ChatDen is intended as open source instead, see the license discussion in the architecture doc — swap this section and the `LICENSE` file accordingly.)*
+
